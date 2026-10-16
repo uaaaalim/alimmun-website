@@ -1,9 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  cacheComponents: true,
-  partialPrefetching: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "upload.wikimedia.org",
+        pathname: "/wikipedia/commons/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.icon-icons.com",
+        pathname: "/**",
+      },
+    ],
+  },
+  cacheComponents: false,
+  partialPrefetching: false,
   turbopack: {
     rules: {
       "*.css": {
@@ -11,7 +24,7 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
-  },
+  }
 };
 
 export default nextConfig;
