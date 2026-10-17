@@ -10,8 +10,23 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Alim Mun website",
-  description: "Website with portfolio and just about me",
+  metadataBase: new URL("https://alimmun.com"),
+  title: {
+    default: "Alim Mun | Developer",
+    template: "%s | Alim Mun",
+  },
+  description: "Personal website of Alim Mun. Explore my projects, technologies, portfolio and creative work.",
+  robots: {
+    index: true,
+    follow: true,
+  },
+  openGraph: {
+    type: "website",
+    title: "Alim Mun | Developer",
+    description: "Projects, technology and personal portfolio.",
+    url: "https://alimmun.com",
+    siteName: "Alim Mun",
+  },
 };
 
 export default function RootLayout({children}: LayoutProps<"/">) {
