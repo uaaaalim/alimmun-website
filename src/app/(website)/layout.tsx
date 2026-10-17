@@ -113,8 +113,8 @@ export default function WebsiteLayout({children}: { children: React.ReactNode })
             </Link>
 
             <span onClick={CopyEmail} className="hover:cursor-pointer">
-                            <SiGmail size={28} className="hover:text-red-500 transition-all duration-300 hover:mb-1"/>
-                        </span>
+              <SiGmail size={28} className="hover:text-red-500 transition-all duration-300 hover:mb-1"/>
+            </span>
           </div>
         </div>
       </footer>

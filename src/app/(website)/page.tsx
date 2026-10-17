@@ -9,6 +9,7 @@ import BlurText from "@/components/BlurText";
 import {Circle, MoveRight, Link as LucideLink} from "lucide-react";
 
 import {useEffect, useState} from "react";
+import AboutPhotos from "@/components/carousels/AboutMeCarousels";
 
 
 export default function Home() {
@@ -91,6 +92,16 @@ export default function Home() {
 
   const knowledgeStack = ["py", "js", "ts", "java", "nextjs", "react", "git", "docker", "debian", "postgresql"]
 
+  const birthDate = new Date(2007, 9, 17);
+  const today = new Date();
+
+  const age =
+    today.getFullYear() - birthDate.getFullYear() -
+    (today.getMonth() < birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() &&
+      today.getDate() < birthDate.getDate())
+      ? 1
+      : 0);
 
   return (
     <>
@@ -184,13 +195,13 @@ export default function Home() {
             <h2 className="font-bold text-2xl md:text-4xl md:hidden">About me</h2>
           </div>
           <div>
-            <Image className="md:max-w-80 rounded-4xl max-w-70" alt="" width={3024} height={4032} src="/IMG_0936.JPG"/>
+            <AboutPhotos />
           </div>
           <div className="flex flex-col justify-center gap-10 items-center md:items-start">
             <h2 className="font-bold text-4xl hidden md:block">About me</h2>
             <div className="flex flex-col gap-5 max-w-md">
               <div>
-                <p>Hi! My name is Alim. I&#39;m 19 and I&#39;m from Kazakhstan, Almaty.</p>
+                <p>Hi! My name is Alim. I&#39;m {age} and I&#39;m from Kazakhstan, Almaty.</p>
                 <p>I am student of Narxoz university, major is Statistics and Data Science.</p>
               </div>
               <div>
@@ -216,7 +227,7 @@ export default function Home() {
           <div className="w-full flex flex-col text-center">
             <h2 className="text-2xl font-bold md:text-4xl">Knowledge stack</h2>
           </div>
-          <div className="mx-auto flex flex-wrap justify-center gap-4">
+          <div className="mx-auto flex flex-wrap justify-center gap-4 select-none">
             {
               knowledgeStack.map((item, index) => (
                 <div key={`knowledgeStack_${index}`} className="flex h-24 w-36 shrink-0 items-center justify-center rounded-2xl border-2 border-stone-200 duration-300 transition-all hover:bg-zinc-200 hover:-translate-y-1">
