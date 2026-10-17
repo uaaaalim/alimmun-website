@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         hostname: "images.icon-icons.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "skillicons.dev",
+        pathname: "/icons",
+      },
     ],
   },
   cacheComponents: false,
@@ -24,7 +29,8 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
-  }
+  },
+  allowedDevOrigins: ['192.168.101.7'],
 };
 
 export default nextConfig;
