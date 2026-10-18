@@ -9,6 +9,20 @@ import {Menu, X} from "lucide";
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
+  // useEffect(() => {
+  //   if (!menuOpen) return;
+  //
+  //   const HTML = document.documentElement;
+  //   const previousOverflow = HTML.style.overflow;
+  //
+  //   HTML.style.overflow = "hidden";
+  //   HTML.scrollTo({top: 0})
+  //
+  //   return () => {
+  //     HTML.style.overflow = previousOverflow;
+  //   }
+  // })
+
   return (
     <header className="sticky top-0 z-50 px-4 lg:px-10 py-6 bg-white w-full">
       <div className="flex max-w-6xl mx-auto w-full items-center gap-6 lg:gap-15 justify-between">
