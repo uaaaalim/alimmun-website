@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import ParticlesBg from "@/app/(website)/ParticlesBg";
+import ParticlesBg from "@/app/(mainpage)/ParticlesBg";
 import BlurText from "@/components/BlurText";
 
 import {Circle, MoveRight, Link as LucideLink} from "lucide-react";
@@ -256,7 +256,7 @@ export default function Home() {
                     <p className="text-md font-bold">Alim Mun&#39;s website</p>
                 </span>
                 <p className="text-sm">
-                  An open-source website about me and my projects history (active and unactive). Written on NextJS with
+                  An open-source website about me and my projects history (active and inactive). Written on NextJS with
                   purpose to learn web development.
                 </p>
               </div>
@@ -333,7 +333,7 @@ export default function Home() {
                 </div>
                 <Link
                   target="_blank"
-                  href="https://github.com/uaaaalim/bfit_bot"
+                  href="https://github.com/uaaaalim/news_checker"
                   className="flex gap-2 items-center border-b border-current hover:text-violet-600 duration-200 transition-all hover:ml-2 hover:border-b-violet-600"
                 >
                   <LucideLink className="size-4"/>
