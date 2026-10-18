@@ -17,17 +17,17 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   metadataBase: new URL("https://alimmun.com"),
   title: {
-    default: "Alim Mun | Developer",
-    template: "%s | Alim Mun",
+    default: "Alim Mun - Алим Мун",
+    template: "%s | Alim Mun - Алим Мун",
   },
-  description: "Personal website of Alim Mun. Explore my projects, technologies, portfolio and creative work.",
+  description: "Personal website of Alim Mun (Алим Мун). Explore my projects, technologies, portfolio and creative work.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
     type: "website",
-    title: "Alim Mun | Developer",
+    title: "Alim Mun - Алим Мун | Developer",
     description: "Projects, technology and personal portfolio.",
     url: "https://alimmun.com",
     siteName: "Alim Mun",
@@ -73,7 +73,7 @@ export default function RootLayout({children}: LayoutProps<"/">) {
                   <p className="text-zinc-600">
                     Hey, I&#39;m Alim. I write code, explore new ideas,
                     and turn some of them into projects.
-                    This is my little corner of the internet.
+                    This is my little corner of the internet. (not AI generated)
                   </p>
 
                   <p className="text-zinc-500">
