@@ -1,0 +1,23 @@
+services:
+  website:
+    build: .
+    restart: unless-stopped
+
+    environment:
+      NODE_ENV: production
+
+    env_file:
+      - path: .env.production
+        required: false
+
+    networks:
+      proxy:
+        aliases:
+          - alimmun-website
+
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  proxy:
+    external: true

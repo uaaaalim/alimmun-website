@@ -29,8 +29,7 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
-  },
-  output: "standalone",
+  }
 };
 
 export default nextConfig;
