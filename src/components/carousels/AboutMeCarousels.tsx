@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 const photos = [
   "/IMG_0936.JPG",
-  "/IMG_0657.jpg",
-  "/IMG_1688.jpg",
+  "/IMG_0657.JPG",
+  "/IMG_1688.JPG",
 ];
 
 export default function AboutPhotos() {
