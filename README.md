@@ -1,36 +1,107 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# alimmun-website
 
-## Getting Started
+Мой личный сайт — немного обо мне, мои проекты и фотографии. Делаю его заодно с изучением веб-разработки и постепенно дополняю.
 
-First, run the development server:
+Сайт: [alimmun.com](https://alimmun.com)
+Автор: [uaaaalim](https://github.com/uaaaalim)
+
+## Стек
+
+- Next.js 16.4.1 с App Router, React 19.3 и TypeScript.
+- Tailwind CSS 4 для стилей, Motion для анимаций.
+- Embla Carousel для каруселей, Sonner для уведомлений, Lucide и Simple Icons для иконок.
+- Docker: Node.js 24, многоэтапная сборка и standalone-вывод Next.js.
+
+## Локальный запуск
+
+Нужны Node.js 24 и npm. Из корня проекта:
 
 ```bash
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Сайт будет доступен на [localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Сборка и запуск в production-режиме без Docker:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm start
+```
 
-## Learn More
+Проверка кода:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Docker
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Собрать образ и запустить контейнер локально:
 
-## Deploy on Vercel
+```bash
+docker build -t alimmun-website .
+docker run -d --name alimmun-website -p 3000:3000 --restart unless-stopped alimmun-website
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Открыть [localhost:3000](http://localhost:3000). Внутри контейнера приложение слушает порт `3000` и работает от пользователя `node`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Логи и остановка:
+
+```bash
+docker logs -f alimmun-website
+docker stop alimmun-website
+docker rm alimmun-website
+```
+
+### Docker Compose на сервере
+
+В `docker-compose.yaml` используется готовый образ `ghcr.io/uaaaalim/alimmun-website:latest`. Контейнер подключается к внешней сети `proxy`, порты на хост не публикуются. Reverse proxy должен находиться в той же сети и направлять запросы на `alimmun-website:3000`.
+
+Если сеть ещё не создана:
+
+```bash
+docker network create proxy
+```
+
+Запуск и обновление образа:
+
+```bash
+docker compose pull
+docker compose up -d
+```
+
+Логи и остановка:
+
+```bash
+docker compose logs -f website
+docker compose down
+```
+
+Файл `.env.production` подключается Compose, если он есть. Для текущего приложения обязательных переменных окружения нет.
+
+## Карта сайта
+
+| Адрес | Что находится |
+| --- | --- |
+| `/` | Главная, информация обо мне и избранные проекты |
+| `/projects` | Список проектов, их стек, статус и ссылки |
+| `/gallery` | Галерея, пока в процессе наполнения |
+
+[sitemap.xml](https://alimmun.com/sitemap.xml) формируется в `src/app/sitemap.ts`, [robots.txt](https://alimmun.com/robots.txt) — в `src/app/robots.ts`. При добавлении страниц список в sitemap нужно обновлять вручную. Домен также указан в метаданных в `src/app/layout.tsx`.
+
+## Где что лежит
+
+```text
+src/app/            — страницы, общие стили, layouts и метаданные
+src/components/     — компоненты интерфейса
+src/lib/            — вспомогательные функции
+public/             — фотографии и статические файлы
+Dockerfile          — сборка production-образа
+docker-compose.yaml — запуск на сервере
+```
+
+---
+
+Сайт разрабатываю я, uaaaalim, своими руками. ИИ участвовал только как ассистент для помощи в разработке — авторство и реализация проекта за мной.
