@@ -2,6 +2,7 @@ services:
   website:
     image: ghcr.io/uaaaalim/alimmun-website:latest
     restart: unless-stopped
+    container_name: alimmun-website
 
     env_file:
       - path: .env.production
