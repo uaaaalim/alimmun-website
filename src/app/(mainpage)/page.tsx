@@ -90,7 +90,7 @@ export default function Home() {
     };
   }, [showMainSection]);
 
-  const knowledgeStack = ["py", "js", "ts", "java", "nextjs", "react", "git", "docker", "debian", "postgresql"]
+  const knowledgeStack = ["py", "js", "ts", "go", "nextjs", "git", "docker", "debian", "postgresql"]
 
   const birthDate = new Date(2007, 9, 17);
   const today = new Date();
@@ -342,10 +342,13 @@ export default function Home() {
               </div>
             </div>
           </section>
-          <div
-            className="flex text-lg gap-2 m-auto items-center border-b border-current hover:text-violet-600 duration-200 transition-all hover:border-b-violet-600">
-            <Link href="/projects">Explore more</Link>
-            <MoveRight strokeWidth={1}/>
+          <div className="mx-auto">
+            <Link
+              href="/projects"
+              className="flex text-lg gap-2 m-auto items-center border-b border-current hover:text-violet-600 duration-200 transition-all hover:border-b-violet-600"
+            >
+              Explore more <MoveRight strokeWidth={1}/>
+            </Link>
           </div>
         </div>
       </section>

@@ -23,12 +23,22 @@ export default function Projects() {
   const projects = [
     {
       name: 'Alim Mun\'s Website',
-      short_description: 'An open-source website about me and my projects history (active and inactive). ' +
+      short_description: 'An open-source website (front-end part) about me and my projects history (active and inactive). ' +
         'Written on NextJS with purpose to learn web development.',
       stack_used: ['NextJS', 'Javascript', 'Typescript', 'Postgres', 'Debian', 'Docker'],
       status: 'active',
       years: ['2026'],
       source_code: 'https://github.com/uaaaalim/alimmun-website',
+      demonstrate_link: 'https://alimmun.com/'
+    },
+    {
+      name: 'Alim Mun\'s Website RestAPI',
+      short_description: 'An open-source back-end for Alim\'s Website. Contains auth, post management, etc. ' +
+        'Written on base go/http with GORM, migrations and clean structure',
+      stack_used: ['Go', 'Postgres', 'GORM', 'Debian', 'Docker'],
+      status: 'in_development',
+      years: ['2026'],
+      source_code: 'https://github.com/uaaaalim/alimmun-restapi',
       demonstrate_link: 'https://alimmun.com/'
     },
     {
@@ -120,6 +130,9 @@ export default function Projects() {
                     {project.status == "abandoned" ? (
                       <Circle className="text-stone-500 fill-stone-500 size-4"/>
                     ) : null}
+                    {project.status == "in_development" ? (
+                      <Circle className="text-cyan-500 fill-cyan-500 size-4"/>
+                    ) : null}
                     <p className="font-bold text-sm">{project.name}</p>
                   </div>
                   <p className="text-sm">{project.short_description}</p>
@@ -161,6 +174,9 @@ export default function Projects() {
                     ) : null}
                     {projects[selectedProject].status == "abandoned" ? (
                       <Circle className="text-stone-500 fill-stone-500 size-4"/>
+                    ) : null}
+                    {projects[selectedProject].status == "in_development" ? (
+                      <Circle className="text-cyan-500 fill-cyan-500 size-4"/>
                     ) : null}
                     <span className="text-sm">{projects[selectedProject].status}</span>
                     <span className="text-stone-600">•</span>
